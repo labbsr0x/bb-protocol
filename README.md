@@ -3,11 +3,14 @@
 A compliant **Big Brother** library should expose the following metrics: 
 
 ```
-request_seconds_bucket{type, status, isError, method, addr, le}
-request_seconds_count{type, status, isError, method, addr}
-request_seconds_sum{type, status, isError, method, addr}
-response_size_bytes{type, status, isError, method, addr}
+request_seconds_bucket{type, status, isError, errorMessage, method, addr, le}
+request_seconds_count{type, status, isError, errorMessage, method, addr}
+request_seconds_sum{type, status, isError, errorMessage, method, addr}
+response_size_bytes{type, status, isError, errorMessage, method, addr}
 dependency_up{name}
+dependency_request_seconds_bucket{name, type, status, isError, errorMessage, method, addr, le}
+dependency_request_seconds_count{name, type, status, isError, errorMessage, method, add}
+dependency_request_seconds_sum{name, type, status, isError, errorMessage, method, add}
 application_info{version}
 ```
 
@@ -38,10 +41,10 @@ The following libraries make part of **Big Brother** official libraries:
 1. [`express-monitor`](https://github.com/labbsr0x/express-monitor) for Node JS Express apps;
 2. [`servlet-monitor`](https://github.com/labbsr0x/servlet-monitor) for Java Servlets apps;
 3. [`flask-monitor`](https://github.com/labbsr0x/flask-monitor) for Python Flask apps;
+4. [`mux-monitor`](https://github.com/labbsr0x/mux-monitor) for the Golang Mux apps;
 4. [TODO] `iris-monitor` for Golang Iris apps;
-5. [TODO] `mux-monitor` for the Golang Mux apps;
 
-Without these, you would have to expose the metrics by yourself, possibly leading to inconsistencies and other errors when setting up your app's observability infrastructure with **Big Brother**. 
+Without these, you would have to expose the metrics by yourself, possibly leading to inconsistencies and other errors when setting up your app's observability infrastructure with **Big Brother**.
 
 # Big Brother
 
