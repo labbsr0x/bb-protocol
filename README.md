@@ -21,7 +21,10 @@ In detail:
 3. `request_seconds_sum` is a counter that counts the overall sum of how long the requests with those exact label occurrences are taking;
 4. `response_size_bytes` is a counter that computes how much data is being sent back to the user for a given request type. It captures the response size from the `content-length` response header. If there is no such header, the value exposed as metric will be zero;
 5. `dependency_up` is a metric to register weather a specific dependency is up (1) or down (0). The label `name` registers the dependency name;
-6. Finally, `application_info` holds static info of an application, such as it's semantic version number; 
+6. `dependency_request_seconds_bucket` is a metric that defines the histogram of how many requests to a specific dependency are falling into the well defined buckets represented by the label `le`;
+7. `dependency_request_seconds_count` is a counter that counts the overall number of requests to a specific dependency;
+8. `dependency_request_seconds_sum` is a counter that counts the overall sum of how long requests to a specific dependency are taking;
+9. Finally, `application_info` holds static info of an application, such as it's semantic version number; 
 
 ## Labels
 
